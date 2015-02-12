@@ -154,7 +154,7 @@ int main(int argc, char *argv[])
   mfuncs["elli"]=elli;
   mfuncs["rosenbrock"]=rosenbrock;
   
-  google::ParseCommandLineFlags(&argc, &argv, true);
+  gflags::ParseCommandLineFlags(&argc, &argv, true);
   std::vector<double> x0(FLAGS_dim,FLAGS_x0);
   
   CMAParameters<> cmaparams(x0,FLAGS_sigma0);

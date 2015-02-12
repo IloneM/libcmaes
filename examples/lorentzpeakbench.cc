@@ -90,7 +90,7 @@ DEFINE_string(alg,"cmaes","algorithm, among cmaes, ipop, bipop, acmaes, aipop, a
 
 int main(int argc, char *argv[])
 {
-  google::ParseCommandLineFlags(&argc, &argv, true);
+  gflags::ParseCommandLineFlags(&argc, &argv, true);
   double x0[6] = {1,1,1,6,.03,1};
   int dim = 6;
   loaddata("lorentzpeakbench.dat");

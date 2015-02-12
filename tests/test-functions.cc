@@ -618,11 +618,11 @@ CMASolutions cmaes_opt()
 
 int main(int argc, char *argv[])
 {
-  google::ParseCommandLineFlags(&argc, &argv, true);
+  gflags::ParseCommandLineFlags(&argc, &argv, true);
 #ifdef HAVE_GLOG
-  google::InitGoogleLogging(argv[0]);
+  gflags::InitGoogleLogging(argv[0]);
   FLAGS_logtostderr=1;
-  google::SetLogDestination(google::INFO,"");
+  gflags::SetLogDestination(gflags::INFO,"");
   //FLAGS_log_prefix=false;
 #endif
   

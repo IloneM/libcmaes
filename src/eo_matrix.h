@@ -29,7 +29,7 @@
 typedef Eigen::MatrixXd dMat; // declares a column-major non-sparse matrix type of double
 typedef Eigen::VectorXd dVec; // declares a vector of double.
 
-#include <unsupported/Eigen/MatrixFunctions>
+#include <eigen3/unsupported/Eigen/MatrixFunctions>
 
 inline void removeRow(dMat& matrix, unsigned int rowToRemove)
 {
