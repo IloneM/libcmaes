@@ -33,6 +33,7 @@
 #ifndef __EIGENMULTIVARIATENORMAL_HPP
 #define __EIGENMULTIVARIATENORMAL_HPP
 
+#include "eo_matrix.h"
 #include <Eigen/Dense>
 #include <random>
 #include <stdexcept>
