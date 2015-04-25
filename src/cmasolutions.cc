@@ -33,10 +33,14 @@ namespace libcmaes
   {
     try
       {
-	if (!static_cast<CMAParameters<TGenoPheno>&>(p)._sep && !static_cast<CMAParameters<TGenoPheno>&>(p)._vd)
+	if (!static_cast<CMAParameters<TGenoPheno>&>(p)._sep && !static_cast<CMAParameters<TGenoPheno>&>(p)._vd) {
 	  _cov = dMat::Identity(p._dim,p._dim);
-	else _sepcov = dMat::Constant(p._dim,1,1.0);
-      }
+	  _csqinv = _cov;
+	} else {
+	  _sepcov = dMat::Constant(p._dim,1,1.0);
+	  _sepcsqinv = _sepcov;
+	}
+	  }
     catch (std::bad_alloc &e)
       {
 	_run_status = OPTI_ERR_OUTOFMEMORY;
