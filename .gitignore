@@ -1,0 +1,96 @@
+# trash i.e. useless
+old
+old/*
+
+# vim files
+*.swp
+tmp
+temp
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+#dependencies
+*.d
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+#partiular
+Makefile
+Makefile.in
+README
+README.html
+aclocal.m4
+autom4te.cache/
+compile
+config.guess
+config.log
+config.status
+config.sub
+configure
+examples/.deps/
+examples/.libs/
+examples/Makefile
+examples/Makefile.in
+examples/sample_code
+examples/sample_code_ask_tell
+examples/sample_code_bounds
+examples/sample_code_genopheno
+examples/sample_code_gradient
+examples/sample_code_lscaling
+examples/sample_code_lscaling_sigmas
+examples/sample_code_pffunc
+examples/sample_code_pfunc
+examples/sample_code_surrogate1
+examples/surrogates/.deps/
+examples/surrogates/.dirstamp
+examples/test_rsvm
+libcmaes.pc
+libcmaes_config.h
+libcmaes_config.h.in
+libcmaes_config.h.in~
+libtool
+ltmain.sh
+missing
+python/Makefile
+python/Makefile.in
+src/.deps/
+src/.libs/
+src/Makefile
+src/Makefile.in
+src/libcmaes_config.h
+stamp-h1
+test-driver
+tests/.deps/
+tests/.libs/
+tests/Makefile
+tests/Makefile.in
+tests/bbob.v13.09/
+tests/edm
+tests/simple_test
+tests/test-suite.log
+
