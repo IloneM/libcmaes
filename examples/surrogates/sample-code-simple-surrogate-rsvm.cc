@@ -26,6 +26,10 @@
 
 #include <gflags/gflags.h>
 
+#ifndef GFLAGS_GFLAGS_H_
+namespace gflags = google;
+#endif  // GFLAGS_GFLAGS_H_
+
 using namespace libcmaes;
 
 void to_mat_vec(std::vector<Candidate> &cp,
