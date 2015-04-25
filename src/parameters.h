@@ -41,6 +41,8 @@ namespace libcmaes
   class Parameters
     {
       friend class CMASolutions;
+      template <class U, class V> friend class RPCMABig;
+      template <class U, class V> friend class RPCMASmall;
       template <class U, class V> friend class CMAStrategy;
       template <class U, class V, class W> friend class ESOStrategy;
       template <class U> friend class CMAStopCriteria;
