@@ -60,6 +60,15 @@ namespace libcmaes
 
     public:
       /**
+       * \brief Computes lambda value according from the dimension
+       * @param dim problem dimensions
+       */
+    static inline int build_lambda(const int &dim)
+      {
+	  return 4 + floor(3.0*log(dim));
+      }
+
+      /**
        * \brief empty constructor.
        */
     Parameters():_dim(0),_lambda(-1),_max_iter(0)
@@ -78,7 +87,7 @@ namespace libcmaes
       :_dim(dim),_lambda(lambda),_seed(seed),_gp(gp)
       {
 	if (_lambda == -1 || _lambda < 2) // lambda is unspecified
-	  _lambda = 4 + floor(3.0*log(_dim));
+	  _lambda = build_lambda(_dim);
 	if (_seed == 0) // seed is not forced.
 	  _seed = static_cast<uint64_t>(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now().time_since_epoch()).count());
 	set_x0(x0);
