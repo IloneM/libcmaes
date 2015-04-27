@@ -94,3 +94,7 @@ tests/edm
 tests/simple_test
 tests/test-suite.log
 
+# docs
+doc/html
+doc/latex
+
