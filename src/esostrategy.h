@@ -52,6 +52,17 @@ namespace libcmaes
   {
   public:
     /**
+     * \brief Build the fvalue usually evaluating _func on candidate datas at column col
+	 * @param the column of the candidate to be evaluated
+	 * @param the candidates stored as column of the matrix
+	 * @return the computed function value
+     */
+	inline double build_fvalue(const int &col, dMat& candidates)
+      {
+      return _func(candidates.col(col).data(),candidates.rows());
+      }
+
+    /**
      * \brief dummy constructor.
      */
     ESOStrategy()

@@ -62,8 +62,9 @@ namespace libcmaes
       /**
        * \brief Computes lambda value according from the dimension
        * @param dim problem dimensions
+	   * @return the lambda computed value
        */
-    static inline int build_lambda(const int &dim)
+    inline int build_lambda(const int &dim)
       {
 	  return 4 + floor(3.0*log(dim));
       }
