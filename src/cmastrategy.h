@@ -121,6 +121,11 @@ namespace libcmaes
       void plot();
     
     protected:
+      /**
+       * \brief Setup _esolver and _solutions before beginning iteration. The function is intended for heritage purpose. Here called by Ask.
+       */
+      void initialize_esolver_and_solutions();
+
       Eigen::EigenMultivariateNormal<double> _esolver;  /**< multivariate normal distribution sampler, and eigendecomposition solver. */
       CMAStopCriteria<TGenoPheno> _stopcriteria; /**< holds the set of termination criteria, see reference paper. */
       std::ofstream *_fplotstream = nullptr; /**< plotting file stream, not in parameters because of copy-constructor hell. */
