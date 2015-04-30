@@ -57,7 +57,7 @@ namespace libcmaes
 	 * @param the candidates stored as column of the matrix
 	 * @return the computed function value
      */
-	inline double build_fvalue(const int &col, const dMat& candidates)
+	virtual inline double build_fvalue(const int &col, const dMat& candidates)
       {
       return _func(candidates.col(col).data(),candidates.rows());
       }
