@@ -63,6 +63,7 @@ namespace libcmaes
        * \brief Computes lambda value according from the dimension
        * @param dim problem dimensions
 	   * @return the lambda computed value
+	   * TODO: make it virtual
        */
     inline int build_lambda(const int &dim)
       {
