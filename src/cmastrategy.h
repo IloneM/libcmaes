@@ -75,18 +75,18 @@ namespace libcmaes
        *        multivariate normal distribution.
        * return A matrix whose rows contain the candidate points.
        */
-      dMat ask();
+      virtual dMat ask();
 
       /**
        * \brief Updates the covariance matrix and prepares for the next iteration.
        */
-      void tell();
+      virtual void tell();
 
       /**
        * \brief Stops search on a set of termination criterias, see reference paper.
        * @return true if search must stop, false otherwise.
        */
-      bool stop();
+      virtual bool stop();
 
       /**
        * \brief Finds the minimum of the objective function. It makes

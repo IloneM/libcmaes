@@ -95,7 +95,7 @@ namespace libcmaes
      * \brief Generates a set of candidate points.
      * @return A matrix whose rows contain the candidate points.
      */
-    dMat ask();
+    virtual dMat ask()=0;
 
     /**
      * \brief Evaluates a set of candidates against the objective function.
@@ -106,20 +106,20 @@ namespace libcmaes
      * @param phenocandidates The candidates transformed into phenotype, 
      *        leave empty if no pheno transform.
      */
-    void eval(const dMat &candidates,
+    virtual void eval(const dMat &candidates,
 	      const dMat &phenocandidates=dMat(0,0));
 
     /**
      * \brief Updates the state of the stochastic search, and prepares
      *        for the next iteration.
      */
-    void tell();
+    virtual void tell()=0;
 
     /**
      * \brief Decides whether to stop the search for solutions.
      * @return true if search must stop, false otherwise.
      */
-    bool stop();
+    virtual bool stop()=0;
 
     /**
      * \brief Finds the minimum of the objective function. It makes
