@@ -266,7 +266,7 @@ namespace libcmaes
       {
 	return out;
       }
-    out << "best solution => f-value=" << best_candidate().get_fvalue() << " / fevals=" << _nevals << " / sigma=" << _sigma << " / iter=" << _niter << " / elaps=" << _elapsed_time << "ms" << " / x=" << gp.pheno(best_candidate().get_x_dvec()).transpose();
+    out << "best solution => f-value=" << get_best_seen_candidate().get_fvalue() << " / fevals=" << _nevals << " / sigma=" << _sigma << " / iter=" << _niter << " / elaps=" << _elapsed_time << "ms" << " / x=" << gp.pheno(get_best_seen_candidate().get_x_dvec()).transpose();
     if (verb_level)
       {
 	out << "\ncovdiag=" << _cov.diagonal().transpose() << std::endl;

@@ -42,7 +42,8 @@ namespace libcmaes
     {
       friend class CMASolutions;
       template <class U, class V> friend class RPCMABig;
-      template <class U, class V> friend class RPCMASmall;
+      template <class U, class V> friend class ERPCMABig;
+      template <class B, class U, class V> friend class ERPCMASmall;
       template <class U, class V> friend class CMAStrategy;
       template <class U, class V, class W> friend class ESOStrategy;
       template <class U> friend class CMAStopCriteria;
@@ -63,9 +64,8 @@ namespace libcmaes
        * \brief Computes lambda value according from the dimension
        * @param dim problem dimensions
 	   * @return the lambda computed value
-	   * TODO: make it virtual
        */
-    inline int build_lambda(const int &dim)
+    inline virtual int build_lambda(const int &dim)
       {
 	  return 4 + floor(3.0*log(dim));
       }

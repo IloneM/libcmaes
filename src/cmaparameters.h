@@ -36,7 +36,8 @@ namespace libcmaes
     {
       friend class CMASolutions;
       template <class U, class V> friend class RPCMABig;
-      template <class U, class V> friend class RPCMASmall;
+      template <class U, class V> friend class ERPCMABig;
+      template <class B, class U, class V> friend class RPCMASmall;
       template <class U, class V> friend class CMAStrategy;
       template <class U, class V, class W> friend class ESOStrategy;
       template <class U> friend class CMAStopCriteria;
@@ -244,7 +245,7 @@ namespace libcmaes
       inline void set_elitism(const int &e)
       {
 	if (e == 0)
-	  _elitist = _initial_elitist = _initial_elitist_on_restart;
+	  _elitist = _initial_elitist = _initial_elitist_on_restart = false;
 	else if (e == 1)
 	  {
 	    _elitist = true;

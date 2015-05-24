@@ -159,23 +159,7 @@ namespace libcmaes
     
     // sample for multivariate normal distribution, produces one candidate per column.
     dMat pop;
-    if (!eostrat<TGenoPheno>::_parameters._sep && !eostrat<TGenoPheno>::_parameters._vd)
-      pop = _esolver.samples(eostrat<TGenoPheno>::_parameters._lambda,eostrat<TGenoPheno>::_solutions._sigma); // Eq (1).
-    else if (eostrat<TGenoPheno>::_parameters._sep)
-      pop = _esolver.samples_ind(eostrat<TGenoPheno>::_parameters._lambda,eostrat<TGenoPheno>::_solutions._sigma);
-    else if (eostrat<TGenoPheno>::_parameters._vd)
-      {
-	pop = _esolver.samples_ind(eostrat<TGenoPheno>::_parameters._lambda);
-	double normv = eostrat<TGenoPheno>::_solutions._v.squaredNorm();
-	double fact = std::sqrt(1+normv)-1;
-	dVec vbar = eostrat<TGenoPheno>::_solutions._v / std::sqrt(normv);
-
-	pop += fact * vbar * (vbar.transpose() * pop);
-	for (int i=0;i<pop.cols();i++)
-	  {
-	    pop.col(i) = eostrat<TGenoPheno>::_solutions._xmean + eostrat<TGenoPheno>::_solutions._sigma * eostrat<TGenoPheno>::_solutions._sepcov.cwiseProduct(pop.col(i));
-	  }
-      }
+	build_pop(pop);
     
     // gradient if available.
     if (eostrat<TGenoPheno>::_parameters._with_gradient)
@@ -398,6 +382,28 @@ namespace libcmaes
       {
 	_esolver.setMean(eostrat<TGenoPheno>::_solutions._xmean);
 	_esolver.set_covar(eostrat<TGenoPheno>::_solutions._sepcov);
+      }
+  }
+
+  template <class TCovarianceUpdate, class TGenoPheno>
+  void CMAStrategy<TCovarianceUpdate,TGenoPheno>::build_pop(dMat& pop)
+  {
+    if (!eostrat<TGenoPheno>::_parameters._sep && !eostrat<TGenoPheno>::_parameters._vd)
+      pop = _esolver.samples(eostrat<TGenoPheno>::_parameters._lambda,eostrat<TGenoPheno>::_solutions._sigma); // Eq (1).
+    else if (eostrat<TGenoPheno>::_parameters._sep)
+      pop = _esolver.samples_ind(eostrat<TGenoPheno>::_parameters._lambda,eostrat<TGenoPheno>::_solutions._sigma);
+    else if (eostrat<TGenoPheno>::_parameters._vd)
+      {
+	pop = _esolver.samples_ind(eostrat<TGenoPheno>::_parameters._lambda);
+	double normv = eostrat<TGenoPheno>::_solutions._v.squaredNorm();
+	double fact = std::sqrt(1+normv)-1;
+	dVec vbar = eostrat<TGenoPheno>::_solutions._v / std::sqrt(normv);
+
+	pop += fact * vbar * (vbar.transpose() * pop);
+	for (int i=0;i<pop.cols();i++)
+	  {
+	    pop.col(i) = eostrat<TGenoPheno>::_solutions._xmean + eostrat<TGenoPheno>::_solutions._sigma * eostrat<TGenoPheno>::_solutions._sepcov.cwiseProduct(pop.col(i));
+	  }
       }
   }
 

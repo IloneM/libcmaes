@@ -122,9 +122,15 @@ namespace libcmaes
     
     protected:
       /**
-       * \brief Setup _esolver and _solutions before beginning iteration. The function is intended for heritage purpose. Here called by Ask.
+       * \brief Setup _esolver and _solutions before beginning iteration (called by ask). The function is intended for inheritance.
        */
       void initialize_esolver_and_solutions();
+
+      /**
+       * \brief Builds the pop matrix used in ask. The function is intended for customization of process.
+	   * @params The pop matrix to be built
+       */
+      virtual void build_pop(dMat& pop);
 
       Eigen::EigenMultivariateNormal<double> _esolver;  /**< multivariate normal distribution sampler, and eigendecomposition solver. */
       CMAStopCriteria<TGenoPheno> _stopcriteria; /**< holds the set of termination criteria, see reference paper. */
