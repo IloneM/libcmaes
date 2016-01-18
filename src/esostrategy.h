@@ -212,6 +212,27 @@ namespace libcmaes
      */
     void uncertainty_handling();
 
+		/**
+		 * \brief uncertainty handling scheme that perform completely the reevaluation of solutions.
+		 */
+		void perform_uh(const dMat& candidates, const dMat& phenocandidates, int& nfcalls);
+
+		/**
+		 * \brief part of the ucertainty handling scheme that select which candidates should be reevaluated.
+		 */
+		void select_candidates_uh(const dMat& candidates, const dMat& phenocandidates, dMat& candidates_uh);
+
+		/**
+		 * \brief part of the ucertainty handling scheme that evaluate the candidates to be reevaluated.
+		 */
+		void eval_candidates_uh(const dMat& candidates, const dMat& candidates_uh, std::vector<RankedCandidate>& nvcandidates, int& nfcalls);
+
+		/**
+		 * \brief part of the ucertainty handling scheme that set the results of evaluation to the solutions.
+		 */
+		void set_candidates_uh(const std::vector<RankedCandidate>& nvcandidates);
+
+
     /**
      * \brief updates the two-point adaptation average rank difference for
      *        the step-size adaptation mechanism
